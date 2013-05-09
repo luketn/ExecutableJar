@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>executable-jar-test</groupId>
-    <artifactId>executable-jar-test</artifactId>
+    <groupId>executable-jar</groupId>
+    <artifactId>executable-jar</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
@@ -43,6 +43,7 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -85,15 +86,10 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <delete file="${build.directory}/run.sh"/>
-                                <echo file="${build.directory}/run.sh">java -jar ${project.build.finalName}.jar</echo>
-                                <delete file="${build.directory}/run.bat"/>
-                                <echo file="${build.directory}/run.bat">java -jar ${project.build.finalName}.jar</echo>
-                                <zip destfile="${project.build.finalName}.zip">
+                                <zip destfile="${build.directory}/${project.build.finalName}.zip">
                                     <zipfileset dir="${build.directory}" includes="lib/**"/>
                                     <zipfileset dir="${build.directory}" includes="${project.build.finalName}.jar"/>
-                                    <zipfileset dir="${build.directory}" includes="run.sh"/>
-                                    <zipfileset dir="${build.directory}" includes="run.bat"/>
+                                    <zipfileset dir="${basedir}" includes="readme.txt"/>
                                 </zip>
                             </target>
                         </configuration>
