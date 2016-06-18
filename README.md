@@ -1,6 +1,8 @@
 # Executable Jar
 An archetype for creating simple executable JARs with all their dependencies in a ZIP file, including the Maven dependencies in a lib directory.
 
+Ref: http://www.mycodefu.com/2013/05/simple-deployment-in-java.html
+
 ## Usage
 Create a new maven based project in your IDE, selecting to start from an archetype with the following details:
 
