@@ -24,4 +24,7 @@ Compress everything into a neat ZIP file ready to deploy anywhere
 ### Running
 When you unzip your packaged software, you can run it using the following command:
 
+```
 java -jar executable-jar.jar
+```
+
